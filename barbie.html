@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barbie Dress Up 💗</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background: linear-gradient(135deg, #ffb6d9, #ffe4f1);
+  text-align: center;
+  color: #d63384;
+}
+
+h1 {
+  font-size: 35px;
+  text-shadow: 2px 2px white;
+}
+
+.game {
+  background: white;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 5px 20px #e88bb5;
+}
+
+.doll {
+  font-size: 110px;
+  margin: 15px;
+}
+
+.outfit {
+  font-size: 55px;
+  min-height: 70px;
+}
+
+button {
+  background: #ff69b4;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  margin: 5px;
+  border-radius: 20px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #d63384;
+  transform: scale(1.05);
+}
+
+.result {
+  font-size: 20px;
+  margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎀 Barbie Fashion World 🎀</h1>
+
+<div class="game">
+
+  <h2>Makeover Barbie!</h2>
+
+  <div class="doll" id="hair">💇🏻‍♀️</div>
+  <div class="doll" id="face">👸🏻</div>
+  <div class="outfit" id="dress">👗</div>
+  <div class="outfit" id="shoes">👠</div>
+  <div class="outfit" id="accessory">💎</div>
+
+  <h3>💗 Pilih Rambut</h3>
+  <button onclick="change('hair','💇🏻‍♀️')">Pink</button>
+  <button onclick="change('hair','👩🏻‍🦰')">Merah</button>
+  <button onclick="change('hair','👱🏻‍♀️')">Blonde</button>
+
+  <h3>👗 Pilih Baju</h3>
+  <button onclick="change('dress','👗')">Dress</button>
+  <button onclick="change('dress','👚')">Casual</button>
+  <button onclick="change('dress','👘')">Kimono</button>
+  <button onclick="change('dress','👑')">Princess</button>
+
+  <h3>👠 Pilih Sepatu</h3>
+  <button onclick="change('shoes','👠')">High Heels</button>
+  <button onclick="change('shoes','👟')">Sneakers</button>
+  <button onclick="change('shoes','🥿')">Flat Shoes</button>
+
+  <h3>💎 Pilih Aksesori</h3>
+  <button onclick="change('accessory','💎')">Diamond</button>
+  <button onclick="change('accessory','🎀')">Pita</button>
+  <button onclick="change('accessory','👑')">Mahkota</button>
+  <button onclick="change('accessory','👜')">Tas</button>
+
+  <br><br>
+  <button onclick="randomLook()">✨ Random Outfit</button>
+  <button onclick="saveLook()">💖 Selesai!</button>
+
+  <div class="result" id="result">
+    Let's dress up Barbie! 💕
+  </div>
+
+</div>
+
+<script>
+function change(id, emoji) {
+  document.getElementById(id).innerText = emoji;
+}
+
+function randomLook() {
+  const choices = {
+    hair: ['💇🏻‍♀️','👩🏻‍🦰','👱🏻‍♀️'],
+    dress: ['👗','👚','👘','👑'],
+    shoes: ['👠','👟','🥿'],
+    accessory: ['💎','🎀','👑','👜']
+  };
+
+  for (let id in choices) {
+    let random = Math.floor(Math.random() * choices[id].length);
+    change(id, choices[id][random]);
+  }
+}
+
+function saveLook() {
+  document.getElementById('result').innerText =
+    '💖 Barbie looks fabulous! You are a fashion star! 🎀';
+}
+</script>
+
+</body>
+</html>
